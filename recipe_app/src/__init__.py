@@ -9,7 +9,7 @@ def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True) # calls the flask class 
     app.config.from_mapping(
         SECRET_KEY='dev',
-        SQLALCHEMY_DATABASE_URI='postgresql://postgres@pg_container:5432/recipe_keeper', # connect to database
+        SQLALCHEMY_DATABASE_URI='postgresql://postgres@pg:5432/recipe_keeper', # connect to database
         SQLALCHEMY_TRACK_MODIFICATIONS=False,
         SQLALCHEMY_ECHO=True
     )

@@ -27,7 +27,7 @@ class Recipe(db.Model):
     prep_time_hrs = db.Column(db.Float)
     recipe_url = db.Column(db.String, unique=True, nullable=False)
     difficulty = db.Column(db.String)
-    categories = db.relationship('Category_id', backref='recipe') # Foreign Key relationship with categories (one-to-many)
+    category_id = db.relationship('Category', backref='recipe') # Foreign Key relationship with categories (one-to-many)
     contains = db.relationship('Ingredient', secondary=recipes_ingredients, backref='contains') # Backreference is 'fake' column to connect tables
 
     def __init__(self, description: str, prep_time_hrs: float, recipe_url: str, difficulty: str, categories: str):
